@@ -34,7 +34,7 @@ jobs:
 
       - name: Cache release binary
         id: bin-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: target/release/erc8004-events
           key: ${{ runner.os }}-erc8004-events-${{ hashFiles('**/Cargo.lock', 'erc8004-events/src/**', 'erc8004/src/**') }}
@@ -45,7 +45,7 @@ jobs:
 
       - name: Cache cargo registry
         if: steps.bin-cache.outputs.cache-hit != 'true'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             ~/.cargo/registry/index
